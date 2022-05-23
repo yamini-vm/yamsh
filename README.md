@@ -26,5 +26,6 @@ user@programmer~:$ cp target/release/yamsh /usr/bin/
 
 3. Make this your default shell, here are some links to do that:
 
-    a. macOS: https://support.apple.com/en-gb/guide/terminal/trml113/mac
-    b. Linux: Depends on your distribution, please check your distribution's documentation
+a. macOS: https://support.apple.com/en-gb/guide/terminal/trml113/mac
+
+b. Linux: Depends on your distribution, please check your distribution's documentation
