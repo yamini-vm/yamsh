@@ -58,19 +58,31 @@ fn fork_and_execute(args: Vec<&str>) -> u8 {
 
                 runnable_args = Vec::new();
                 if program_path.ends_with(".yas") {
-                    runnable_args.push("yamasm");
+                    runnable_args.push("/usr/local/bin/yamasm");
                 } else if program_path.ends_with(".out") {
-                    runnable_args.push("yamini");
+                    runnable_args.push("/usr/local/bin/yamini");
                 } else {
-                    runnable_args.push("yamini");
+                    runnable_args.push("/usr/local/bin/yamini");
                 }
 
                 runnable_args.push(program_path);
+            } else {
+                match args[0] {
+                    "yamasm" => {
+                        runnable_args[0] = "/usr/local/bin/yamasm";
+                    },
+                    "yamini" => {
+                        runnable_args[0] = "/usr/local/bin/yamini";
+                    },
+                    _ => {}
+                }
             }
 
             let _err = Command::new(runnable_args[0])
                 .args(&runnable_args[1..])
                 .exec();
+
+            e_dark_red_ln!("Error: {}", _err);
         },
         Err(_) => {
             e_dark_red_ln!("Fork failed");
