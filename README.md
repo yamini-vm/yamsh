@@ -29,3 +29,7 @@ user@programmer~:$ cp target/release/yamsh /usr/bin/
 a. macOS: https://support.apple.com/en-gb/guide/terminal/trml113/mac
 
 b. Linux: Depends on your distribution, please check your distribution's documentation
+
+## Features
+
+Some extra features of YamSH (that other shells don't offer) are listed here <a href="https://github.com/yamini-vm/yamsh/blob/master/features.md">features.md</a>.
