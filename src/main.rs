@@ -9,6 +9,7 @@ use std::os::unix::process::CommandExt;
 use colour::{e_dark_red_ln};
 use fork::{fork, Fork};
 use nix::sys::wait::{waitpid, WaitStatus};
+use std::path::Path;
 
 fn exec_cd(args: Vec<&str>) -> u8 {
     if args.len() == 1 {
@@ -74,6 +75,21 @@ fn fork_and_execute(args: Vec<&str>) -> u8 {
                     "yamini" => {
                         runnable_args[0] = "/usr/local/bin/yamini";
                     },
+                    "rm" => {
+                        if args[1] == "-rf" || args[1] == "-r" {
+                            let path = Path::new(args[2]).join(".saferm");
+
+                            if path.exists() {
+                                println!("Are you sure you want to delete the entire directory? (y/n)");
+                                let mut input = String::new();
+                                io::stdin().read_line(&mut input).unwrap();
+
+                                if input.trim() == "n" {
+                                    return 1;
+                                }
+                            }
+                        }
+                    }
                     _ => {}
                 }
             }
