@@ -33,3 +33,7 @@ b. Linux: Depends on your distribution, please check your distribution's documen
 ## Features
 
 Some extra features of YamSH (that other shells don't offer) are listed here <a href="https://github.com/yamini-vm/yamsh/blob/master/features.md">features.md</a>.
+
+## License
+
+This project is licensed under the <a href="https://github.com/yamini-vm/yamsh/blob/master/LICENSE">MIT license</a>.
